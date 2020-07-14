@@ -1,9 +1,18 @@
 # Arcc Jupyter Notebook Guide
 
-This guide is a quick howto for getting access to the arcc cluster, useful slurm commands, getting set up with jupyter, and importing fastai and fastai2.
+This guide is a quick how to for getting access to the arcc cluster, useful slurm commands, getting set up with jupyter, and importing fastai (and maybe fastai2).
 
 ## Getting account info and logging in
 
+Assuming you have UC credentials, to get access to the supercompute cluster fill out the form at the bottom of [this page](https://research.uc.edu/arc)
+
+You'll need to be on UC's network to access the cluster, so if you are off campus you will need to [download](https://www.uc.edu/about/ucit/services/connectivity-fac-staff/vpn.html) anyconnect.
+
+Once you have your account info and are on the network you can access the cluster with 
+
+```bash
+ssh username@arcc.uc.edu
+```
 
 ## Installation
 
