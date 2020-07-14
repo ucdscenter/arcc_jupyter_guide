@@ -41,6 +41,39 @@ To cancel the task run
 scancel {{task id}}
 ```
 
-##Opening Notebook
+## Opening Notebook
+
+Once you've confirmed that your server is running on the node, find the file created that is named 'jupyter-notebook-{{task id}}.log' and open that file with:
+
+```bash
+vi jupyter-notebook-{{task id}}.log
+```
+Note where it says 
+```text
+Command to create ssh tunnel:
+ssh -N -f -L 8889:compute-33:8889 username@arcc.uc.edu
+```
+
+copy that line and run it in a new terminal window on your machine.
+
+Now find the lines in that file
+
+```text
+To access the notebook, open this file in a browser:
+        file:///home/edgertej/.local/share/jupyter/runtime/nbserver-118232-open.html
+    Or copy and paste one of these URLs:
+        http://compute-33:8889/?token=1be273fad869716adb0dc84c7a34d2c0b9bac05ea880a89e
+     or http://127.0.0.1:8889/?token=1be273fad869716adb0dc84c7a34d2c0b9bac05ea880a89e
+```
+
+and copy one of the links into your browser.
+
+Now you can use the cluster's processing in jupyter! 
+
+
+## Soon: installing and using fastai
+
+
+
 
 
