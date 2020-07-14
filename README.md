@@ -2,7 +2,7 @@
 
 This guide is a quick how to for getting access to the arcc cluster, useful slurm commands, getting set up with jupyter, and importing fastai (and maybe fastai2).
 
-## Getting account info and logging in
+## Getting account info and getting started
 
 Assuming you have UC credentials, to get access to the supercompute cluster fill out the form at the bottom of [this page](https://research.uc.edu/arc)
 
@@ -14,28 +14,33 @@ Once you have your account info and are on the network you can access the cluste
 ssh username@arcc.uc.edu
 ```
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+You'll also want to download the bash scripts in this repo make a few edits. Change the user strings in the scripts from "edgertej" to your own username. Once that is done copy them to your arcc folder.
 
 ```bash
-pip install foobar
+scp jupyter.sh username@arcc.uc.edu:/home/username
+scp jupyter_gpu.sh username@arcc.uc.edu:/home/username
+
+```
+Running these scripts will start up jupyter servers that you can access from your machine.
+
+## Slurm Commands
+
+Before running you'll need to use the squeue command to see the which resources are available and to see if your tasks are scheduled. Currently there are only to GPU's, so check the partition column if any other people are using the gpu before running the jupyter_gpu script, otherwise it won't be scheduled immediately.
+
+```bash
+squeue
 ```
 
-## Usage
+To run the jupyter server run this command, then run squeue to see if your task has been scheduled. Note the task ID created.
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
+```bash
+sbatch jupyter.sh
+```
+To cancel the task run
+```bash
+scancel {{task id}}
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+##Opening Notebook
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
